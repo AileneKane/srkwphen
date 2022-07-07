@@ -18,9 +18,24 @@ library(scales)
 library(matrixStats)
 library(plotfunctions)
 library(igraph)
+library(brms)
+library(rstan)
+
 # 1. Read in the data
+
+# Orca Master Data obtained from The Whale Museum
 orcasum.days<-read.csv("data/skrwdays.csv")
-# 2, Summarize whale days across the region
+
+# Albion Test Fishery data obtained from http://www.pac.dfo-mpo.gc.ca/fm-gp/species-especes/salmon-saumon/research-recherche/testfishery-pechedessai-eng.html
+
+albiondat<-read.csv("data/albionddat.csv")
+
+# CTC Escapement data (for comparison)
+
+ctc<-read.csv("data/CTCEscapement.csv", header=TRUE)
+
+# 2. Summarize whale days across the region and for Lime Kiln only
+
 wdays<-as.data.frame(tapply(orcasum.days$AllSRpres,list(orcasum.days$year,orcasum.days$region),sum))
 wdays.J<-as.data.frame(tapply(orcasum.days$Jpres,list(orcasum.days$year,orcasum.days$region),sum))
 wdays.K<-as.data.frame(tapply(orcasum.days$Kpres,list(orcasum.days$year,orcasum.days$region),sum))

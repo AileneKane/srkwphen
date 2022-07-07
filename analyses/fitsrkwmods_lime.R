@@ -7,33 +7,36 @@
            iter = 4000, warmup = 1000, thin = 10,
            control = list(adapt_delta = 0.99, max_treedepth=15))
  save(m2, file="analyses/output/sr.brms.Rda")
-load("analyses/output/sr.brms.Rda")
+ #or, if already saved:
+ #load("analyses/output/sr.brms.Rda")
 
 j2 <- brm(Jpres ~ s(day) + (day|year),
           data=limewdaysabs,
           family =bernoulli(), cores = 2,
           iter = 4000, warmup = 1000, thin = 10,
 control = list(adapt_delta = 0.99, max_treedepth=15))
- save(j2, file="analyses/output/j.brms.Rda")
-load("analyses/output/j.brms.Rda")
+
+save(j2, file="analyses/output/j.brms.Rda")
+# or, if already saved:
+# load("analyses/output/j.brms.Rda")
  
-# k2 <- brm(Kpres ~ s(day) + (day|year),
-#            data=limewdaysabs,
-#            family =bernoulli(), cores = 2,
-#            iter = 4000, warmup = 1000, thin = 10,
-#            control = list(adapt_delta = 0.99, max_treedepth=15))
-#  save(k2, file="analyses/output/k.brms.Rda")
-#  
-load("analyses/output/k.brms.Rda")
+k2 <- brm(Kpres ~ s(day) + (day|year),
+            data=limewdaysabs,
+            family =bernoulli(), cores = 2,
+            iter = 4000, warmup = 1000, thin = 10,
+            control = list(adapt_delta = 0.99, max_treedepth=15))
+save(k2, file="analyses/output/k.brms.Rda")
+# or, if already saved:
+# load("analyses/output/k.brms.Rda")
 
-# l2 <- brm(Lpres ~ s(day) + (day|year),
-#            data=limewdaysabs,
-#            family =bernoulli(), chains = 2,
-#            iter = 4000, warmup = 1000, thin = 10,
-#            control = list(adapt_delta = 0.99, max_treedepth=15 ))
-#  save(l2, file="analyses/output/l.brms.Rda")
-
-load("analyses/output/l.brms.Rda")
+ l2 <- brm(Lpres ~ s(day) + (day|year),
+            data=limewdaysabs,
+            family =bernoulli(), chains = 2,
+            iter = 4000, warmup = 1000, thin = 10,
+            control = list(adapt_delta = 0.99, max_treedepth=15 ))
+  save(l2, file="analyses/output/l.brms.Rda")
+# or, if already saved:
+# load("analyses/output/l.brms.Rda")
 
 prob.occ.95<-cbind(limewdaysabs$year,limewdaysabs$day,fitted(m2),fitted(j2),fitted(k2),fitted(l2))
 
