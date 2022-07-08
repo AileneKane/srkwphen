@@ -23,7 +23,7 @@ library(rstan)
 
 # 1. Read in the data
 
-# Orca Master Data obtained from The Whale Museum
+# Orca Master Data obtained from The Whale Museum https://whalemuseum.org/
 orcasum.days<-read.csv("data/skrwdays.csv")
 
 # Albion Test Fishery data obtained from http://www.pac.dfo-mpo.gc.ca/fm-gp/species-especes/salmon-saumon/research-recherche/testfishery-pechedessai-eng.html
@@ -48,5 +48,8 @@ source("analyses/get_whaledays_lime.R")
 source("analyses/fitsrkwmods_lime.R")
 
 # 4. Fit models to Albion test fishery data
+
+source("analyses/fitchinmods_albion.R")
+
 
 # 5. Fit regional models in jags
