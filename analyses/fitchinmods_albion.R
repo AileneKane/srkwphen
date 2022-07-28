@@ -23,7 +23,7 @@ cpuesptot<-cpuesptot[cpuesptot$year<2018,]
 
 ctc$tot<-as.numeric(ctc$SpringSummerTotalRun)
 ctc$sp12<-ctc$SpringAge1.2ctc$total<-ctc$SpringAge1.2+ctc$SpringAge1.3+ctc$SummerAge0.3+ctc$SummerAge1.3+ctc$Harrison_Esc+ctc$LowerShuswap_Esc
-pdf(file="analyses/orcaphen/figures/ctcalbion.pdf",height=15,width=8)
+pdf(file="analyses/figures/ctcalbion.pdf",height=15,width=8)
 par(mfrow=c(4,2))
 ctccols<-c(2,3,4,5)
 for(i in ctccols){
@@ -142,8 +142,6 @@ for(y in allyears){
 albchiphenest<-cbind("ck","albion",years,firstobsdate,lastobsdate,peakobsdate,peakobsdate.sp,peakobsdate.fa,midobsdate,alltotal,alltotal.sp,alltotal.fa)
 
 colnames(albchiphenest)[1:3]<-c("sp","site","year")
-#write.csv(albchiphenest,"analyses/output/albionchiphenestbrms.csv", row.names =FALSE)
-
 
 #Now estimate trends in phenology
 #restrict to time frame consistent with orcas
@@ -186,4 +184,3 @@ phen<-c("first","first","last","last","peak","peak")
 sums<-cbind("ck","albion",phen,allmodsums,allmodsums.50ci,allmodsums.75ci,allmodsums.95ci)
 colnames(sums)<-c("sp","site","phen","est","ci25","ci75","ci12.5","ci87.5","ci2.5","ci97.5")
 
-#write.csv(sums, "analyses/output/albionreturntrends_linmodyrsbrms.csv", row.names = TRUE)
