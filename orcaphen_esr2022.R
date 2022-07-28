@@ -39,3 +39,5 @@ source("analyses/fitsrkwmods_lime.R")
 # 4. Fit models to Albion test fishery data
 
 source("analyses/fitchinmods_albion.R")
+
+#5. Fit regional occupancy models  by running "fitsrkwmods_regional.R
