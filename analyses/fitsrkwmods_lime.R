@@ -1,5 +1,6 @@
 
 #Fit multilevel bernouli gams with presence of SRKWs as the response, fit using brms package
+limewdaysabs$year<-as.factor(limewdaysabs$year)
 
  m2 <- brm(AllSRpres ~ s(day) + (day|year),
            data=limewdaysabs,

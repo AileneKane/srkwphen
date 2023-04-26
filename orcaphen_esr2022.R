@@ -21,8 +21,12 @@ library(igraph)
 library(brms)
 library(rstan)
 
+
+# Set working directory: 
+setwd("~/GitHub/srkwphen")
+
 # 1. Read in the limekiln subset of data from Orca Master Dataset obtained from The Whale Museum https://whalemuseum.org/
-limewdaysabs<-read.csv("data/limedat.csv")
+limewdaysabs<-read.csv("analyses/output/limewdaysabs.csv")
 
 # Albion Test Fishery data obtained and compiled from http://www.pac.dfo-mpo.gc.ca/fm-gp/species-especes/salmon-saumon/research-recherche/testfishery-pechedessai-eng.html
 
